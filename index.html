@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FAQ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="top-bar">
+    <img src="logos/Logo_UME_UKE_EN.jpg" alt="Logo" class="logo">
+  </div>
+  <div class="background"></div>
+  <div class="centered-content" style="display: flex; align-items: center;">
+    <div class="hero-text">
+      <h1>The rise of Digital Humans<br>in Healthcare</h1>
+      <p>Epic MegaGrants Application</p>
+    </div>
+    <div class="circle-video-wrapper">
+      <video src="videos/avatar-walpaper.mov" class="circle-video" autoplay loop muted playsinline></video>
+    </div>
+  </div>
+
+  <!-- Scrollable content -->
+  <div class="main-content">
+    <h2>Project Overview</h2>
+    <div class="overview-text">
+      Our project aims to create a photorealistic, AI-powered digital human avatar that can be seamlessly integrated into hospital infrastructures. Designed to sound and feel human through natural speech, gestures, and appearance, the avatar will reduce communication barriers and provide trusted assistance for both patients and staff. We plan to start with patient orientation and first-contact support: by linking the avatar to a hospital knowledge base, it will answer frequently asked questions, guide patients through administrative steps, and provide staff with quick access to relevant information. In later stages, we will expand toward more complex and specialized use cases, identified through structured needs and user analyses with healthcare professionals and patients.
+    </div>
+    <h2>Welcome to IKIM!</h2>
+    <div class="overview-text welcome-ikim-section" style="position: center; min-height: 180px;">
+      As a first implementation, we created an interactive page for our institute's website where we welcome visitors and help them understand aspects of our institute such as its history and the research we conduct. Unfortunately, we are currently unable to directly embed our digital human into this webpage. However, we have provided a video demonstration. Please click on the image below to watch the video and experience our digital assistant - Monika.
+    </div>
+    <div class="welcome-img-wrapper">
+      <img src="images/welcome-ikim.jpg" alt="Welcome IKIM" class="welcome-img" id="welcome-img" style="cursor:pointer;" />
+      <!-- Modal for video -->
+      <div id="video-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); z-index:1000; align-items:center; justify-content:center;">
+        <video id="welcome-video" src="videos/welcome-video.mov" controls style="max-width:80vw; max-height:80vh; background:#000;"></video>
+      </div>
+    </div>
+    </div>
+    <div class="faq-section">
+      <h2 class="faq-title">FAQ</h2>
+      <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">What are digital humans?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">Digital humans are computer-generated entities that resemble human beings in appearance, behavior, and communication abilities. They are designed to interact with humans, and/or perform certain actions, using natural language processing, facial recognition, and other AI techniques. These entities can exhibit lifelike features, including facial expressions, gestures, and even emotional responses, all within the confines of a digital environment.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What is this project about?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">Our project aims to create a photorealistic, AI-powered digital human avatar that can be seamlessly integrated into hospital infrastructures. Designed to sound and feel human through natural speech, gestures, and appearance, the avatar will reduce communication barriers and provide trusted assistance for both patients and staff. We plan to start with patient orientation and first-contact support: by linking the avatar to a hospital knowledge base, it will answer frequently asked questions, guide patients through administrative steps, and provide staff with quick access to relevant information. In later stages, we will expand toward more complex and specialized use cases, identified through structured needs and user analyses with healthcare professionals and patients.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What technology are we implementing?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">We are using advanced AI, speech synthesis, and computer graphics to create lifelike avatars capable of understanding and responding to human queries.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What are possible use cases?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">Some of the possible use cases include translation services, patient wayfinding, intake and discharge instructions, aftercare follow-up, virtual caregiver support, behavioral health companionship, medication adherence, patient education, wellness coaching, service desk support and clinician education.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Who will this project impact?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">The project will benefit both patients and hospital staff by reducing communication barriers and improving access to trusted information.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // FAQ dropdown logic
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        answer.classList.toggle('open');
+        this.classList.toggle('active');
+        const arrow = this.querySelector('.faq-arrow');
+        arrow.innerHTML = answer.classList.contains('open') ? '\u25B2' : '\u25BC'; // ▲ or ▼
+      });
+    });
+
+    // Video modal logic
+    const welcomeImg = document.getElementById('welcome-img');
+    const videoModal = document.getElementById('video-modal');
+    const welcomeVideo = document.getElementById('welcome-video');
+    if (welcomeImg && videoModal && welcomeVideo) {
+      welcomeImg.addEventListener('click', () => {
+        videoModal.style.display = 'flex';
+        welcomeVideo.currentTime = 0;
+        welcomeVideo.play();
+      });
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+          videoModal.style.display = 'none';
+          welcomeVideo.pause();
+        }
+      });
+    }
+  </script>
+  </div>
+</body>
+</html>
+</html>
